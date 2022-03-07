@@ -8,7 +8,7 @@
 import fetch, {RequestInit, Headers} from 'node-fetch'
 import {stringify} from 'query-string'
 
-interface SearchParams {
+interface UserSearchParams {
 	['vk.id']?: number,
 	username?: string,
 	['ip.value']?: string,
@@ -16,7 +16,7 @@ interface SearchParams {
 	offset?: number
 }
 
-export default class ThunderWrapper
+export default class Wrapper
 {
 	base_url: string;
 
@@ -25,11 +25,11 @@ export default class ThunderWrapper
 		this.base_url = 'https://thunder.durka.xyz';
 	}
 
-	async search(params: SearchParams = {offset: 0}) {
+	async search_user(params: UserSearchParams = {offset: 0}) {
 		return this._send('/api/users/search?' + stringify(params))
 	}
 
-	async get_by_id(id: string) {
+	async get_user_by_id(id: string) {
 		return this._send('/api/users/' + id)
 	}
 
