@@ -1,6 +1,6 @@
 {
   "name": "@carlsmei/thunderjs",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A JavaScript wrapper around the [Thunder](https://thunder.durka.xyz) API.",
   "main": "dist/api.js",
   "author": "carlsmei",
