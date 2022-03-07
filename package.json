@@ -2,8 +2,13 @@
   "name": "thunder-api",
   "version": "1.0.0",
   "description": "A JavaScript wrapper around the [Thunder](https://thunder.durka.xyz) API.",
-  "main": "src/api.js",
+  "main": "dist/api.js",
   "author": "carlsmei",
   "license": "MIT",
-  "repository": "git@github.com:carlsmei/thunder-api.git"
+  "repository": "git@github.com:carlsmei/thunder-api.git",
+  "dependencies": {
+    "@types/node-fetch": "^2.6.1",
+    "node-fetch": "2.6.1",
+    "query-string": "^7.1.1"
+  }
 }
