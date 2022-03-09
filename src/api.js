@@ -1,42 +1,32 @@
 /**
  * Thunder Class
- * 1.0.0 - ** ** 2022
+ * 1.0.2 - 10 03 2022
  * https://thunder.durka.xyz/
  * A JavaScript wrapper around the https://thunder.durka.xyz API.
  * https://github.com/carlsmei/thunder-api
  */
-import fetch, {RequestInit, Headers} from 'node-fetch'
+import fetch, {Headers} from 'node-fetch'
 import {stringify} from 'query-string'
-
-interface UserSearchParams {
-	['vk.id']?: number,
-	username?: string,
-	['ip.value']?: string,
-	['existence.project']?: string,
-	offset?: number
-}
 
 export default class Wrapper
 {
-	base_url: string;
-
 	constructor() {
 		/** @private */
 		this.base_url = 'https://thunder.durka.xyz';
 	}
 
-	async search_user(params: UserSearchParams = {offset: 0}) {
+	async search_user(params = {offset: 0}) {
 		return this._send('/api/users/search?' + stringify(params))
 	}
 
-	async get_user_by_id(id: string) {
+	async get_user_by_id(id) {
 		return this._send('/api/users/' + id)
 	}
 
 	/** @private */
-	private async _send(path: string = '', method: string = 'GET', body?: any) {
+	async _send(path = '', method = 'GET', body) {
 		const headers = new Headers();
-		const options: RequestInit = {
+		const options = {
 			method,
 			headers: headers
 		};
